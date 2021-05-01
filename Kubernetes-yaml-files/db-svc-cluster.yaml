@@ -12,8 +12,8 @@ spec:
     protocol: TCP
     targetPort: 5432
   
-selector:
-    type: test-d
+  selector:
+      type: test-d
   type: ClusterIP
 status:
   loadBalancer: {}

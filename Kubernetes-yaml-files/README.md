@@ -22,5 +22,8 @@
 10. For database create a database service file _db-svc-cluster.yaml_ and deploy it using the command `kubectl apply -f db-svc-cluster.yaml`.
 11. Check the services are up and running using the command `kubectl get svc`
 12. For the application to reach the database we should provide the dns of database service in the database.yml file of application i.e "host: db-svc.default.svc.cluster.local"
-13. To access the application from outside set a port forward for the application service using the command `kubectl port-forward service/load-svc 3000:3000`.
-14. Now the application will be listening from the localhost via port 3000.
+13. Now execute the below commands for databse migration,
+       kubectl exec {pod_name} -- rake db:setup
+       kubectl exec {pod_name} -- rake db:migrate 
+14. To access the application from outside set a port forward for the application service using the command `kubectl port-forward service/load-svc 3000:3000`.
+15. Now the application will be listening from the localhost via port 3000.
